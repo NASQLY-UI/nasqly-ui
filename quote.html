@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Request a Quote | NASQLY UI</title>
+
+    <!-- ربط ملف CSS -->
+    <link rel="stylesheet" href="nasqly.css">
+    <script src="nasqly.js"></script>
+</head>
+
+<body>
+
+    <!-- شريط التنقل -->
+    <header>
+        <nav class="navbar">
+
+            <a href="index.HTML" class="logo">
+                NASQLY UI
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="index.HTML">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="quote.html" class="active">Get a Quote</a></li>
+            </ul>
+
+        </nav>
+    </header>
+
+    <!-- القسم الرئيسي -->
+    <main>
+
+        <section class="quote-section">
+
+            <div class="quote-heading">
+
+                <span class="quote-label">LET'S WORK TOGETHER</span>
+
+                <h1>Start Your <span>Project</span></h1>
+
+                <p>
+                    Tell us about your idea, and let's turn it into
+                    a modern and professional digital experience.
+                </p>
+
+            </div>
+
+            <!-- نموذج طلب عرض السعر -->
+            <form class="quote-form" id="quote-form">
+
+                <div class="form-row">
+
+                    <div class="form-group">
+                        <label for="client-name">Full Name *</label>
+
+                        <input
+                            type="text"
+                            id="client-name"
+                            name="client_name"
+                            placeholder="Enter your full name"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="client-email">Email Address *</label>
+
+                        <input
+                            type="email"
+                            id="client-email"
+                            name="client_email"
+                            placeholder="Enter your email"
+                            required
+                        >
+                    </div>
+
+                </div>
+
+                <div class="form-row">
+
+                    <div class="form-group">
+                        <label for="client-phone">Phone Number</label>
+
+                        <input
+                            type="tel"
+                            id="client-phone"
+                            name="client_phone"
+                            placeholder="Enter your phone number"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="service">Service Required *</label>
+
+                        <select id="service" name="service" required>
+
+                            <option value="">Choose a service</option>
+
+                            <option value="frontend">
+                                Front-End Development
+                            </option>
+
+                            <option value="ui-design">
+                                UI Design
+                            </option>
+
+                            <option value="website">
+                                Complete Website
+                            </option>
+
+                            <option value="redesign">
+                                Website Redesign
+                            </option>
+
+                            <option value="other">
+                                Other
+                            </option>
+
+                        </select>
+                    </div>
+
+                </div>
+
+                <div class="form-row">
+
+                    <div class="form-group">
+                        <label for="budget">Estimated Budget</label>
+
+                        <select id="budget" name="budget">
+
+                            <option value="">Select your budget</option>
+
+                            <option value="under-1000">
+                                Under $1000
+                            </option>
+
+                            <option value="1000-3000">
+                                $1000 - $3000
+                            </option>
+
+                            <option value="3000-5000">
+                                $3000 - $5000
+                            </option>
+
+                            <option value="5000-plus">
+                                $5000+
+                            </option>
+
+                            <option value="discuss">
+                                Let's Discuss
+                            </option>
+
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="deadline">Expected Deadline</label>
+
+                        <input
+                            type="date"
+                            id="deadline"
+                            name="deadline"
+                        >
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+                    <label for="project-details">
+                        Tell Us About Your Project *
+                    </label>
+
+                    <textarea
+                        id="project-details"
+                        name="project_details"
+                        rows="6"
+                        placeholder="Describe your project, goals, and requirements..."
+                        required
+                    ></textarea>
+                </div>
+
+                <button type="submit" class="quote-submit">
+                    Submit Your Request
+                    <span>→</span>
+                </button>
+
+                <p class="quote-note">
+                    We'll review your project details and get back to you.
+                </p>
+
+            </form>
+
+        </section>
+
+    </main>
+
+    <!-- نهاية الصفحة -->
+    <footer>
+        <p>&copy; 2026 NASQLY UI. All rights reserved.</p>
+    </footer>
+<script>
+    // ربط نموذج طلب عرض السعر
+    const quoteForm = document.getElementById("quote-form");
+
+    quoteForm.addEventListener("submit", function (event) {
+        // منع إرسال النموذج بالطريقة التقليدية
+        event.preventDefault();
+
+        // قراءة بيانات العميل
+        const name = document.getElementById("client-name").value.trim();
+        const email = document.getElementById("client-email").value.trim();
+        const phone = document.getElementById("client-phone").value.trim();
+        const service = document.getElementById("service").value;
+        const budget = document.getElementById("budget").value;
+        const deadline = document.getElementById("deadline").value;
+        const details = document.getElementById("project-details").value.trim();
+
+        // تجهيز رسالة واتساب
+        const message =
+            "New Project Request - NASQLY UI\n\n" +
+            "Name: " + name + "\n" +
+            "Email: " + email + "\n" +
+            "Phone: " + (phone || "Not provided") + "\n" +
+            "Service: " + service + "\n" +
+            "Budget: " + (budget || "Not specified") + "\n" +
+            "Deadline: " + (deadline || "Not specified") + "\n\n" +
+            "Project Details:\n" + details;
+
+        // رقم واتساب الخاص بك
+        const whatsappNumber = "201275241384";
+
+        // تحويل الرسالة إلى رابط واتساب
+        const whatsappURL =
+            "https://wa.me/" +
+            whatsappNumber +
+            "?text=" +
+            encodeURIComponent(message);
+
+        // فتح واتساب بالرسالة الجاهزة
+        window.open(whatsappURL, "_blank");
+    });
+</script>
+</body>
+</html>

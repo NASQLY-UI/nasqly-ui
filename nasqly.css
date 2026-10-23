@@ -1,0 +1,1526 @@
+/* ==========================================
+   1. إعدادات الموقع العامة
+   ========================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --background: #080817;
+    --surface: #111127;
+    --purple: #a32bfa;
+    --purple-light: #c46aff;
+    --text: #ffffff;
+    --text-muted: #aaa9c2;
+    --border: rgba(255, 255, 255, 0.09);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--background);
+    color: var(--text);
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    font: inherit;
+}
+
+::selection {
+    background: var(--purple);
+    color: white;
+}
+
+
+/* ==========================================
+   2. شريط التنقل
+   ========================================== */
+
+.navbar {
+    width: 100%;
+    min-height: 85px;
+    padding: 20px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 25px;
+    border-bottom: 1px solid var(--border);
+    background: rgba(8, 8, 23, 0.94);
+    position: relative;
+    z-index: 10;
+}
+
+.logo {
+    font-size: 27px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    white-space: nowrap;
+}
+
+.logo span {
+    color: var(--purple-light);
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.nav-links a {
+    color: var(--text-muted);
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--purple-light);
+}
+
+.nav-links .nav-button {
+    background: var(--purple);
+    color: white;
+    padding: 11px 18px;
+    border-radius: 7px;
+}
+
+.nav-links .nav-button:hover {
+    background: var(--purple-light);
+    color: white;
+}
+
+/* زر القائمة يظهر على الموبايل فقط */
+
+.menu-toggle {
+    display: none;
+    background: transparent;
+    border: 1px solid var(--border);
+    color: white;
+    border-radius: 7px;
+    padding: 6px 12px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+
+/* ==========================================
+   3. الواجهة الرئيسية
+   ========================================== */
+
+.hero {
+    min-height: 650px;
+    padding: 90px 8%;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    align-items: center;
+    gap: 60px;
+    position: relative;
+    isolation: isolate;
+}
+
+/* إضاءة بنفسجية خلف محتوى الصفحة */
+
+.hero::before {
+    content: "";
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    top: 0;
+    left: -150px;
+    background: rgba(110, 25, 210, 0.13);
+    filter: blur(100px);
+    z-index: -1;
+    pointer-events: none;
+}
+
+.hero-content {
+    max-width: 650px;
+}
+
+.hero-label,
+.section-label {
+    color: var(--purple-light);
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    margin-bottom: 22px;
+}
+
+.hero h1 {
+    font-size: clamp(38px, 4.5vw, 66px);
+    line-height: 1.12;
+    letter-spacing: -2px;
+    margin-bottom: 25px;
+}
+
+.hero h1 span {
+    display: block;
+    color: var(--purple-light);
+}
+
+.hero-description {
+    max-width: 520px;
+    color: var(--text-muted);
+    font-size: 16px;
+    line-height: 1.9;
+    margin-bottom: 30px;
+}
+
+
+/* ==========================================
+   4. الأزرار الرئيسية
+   ========================================== */
+
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.button {
+    min-height: 48px;
+    padding: 13px 20px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 7px;
+    font-size: 14px;
+    font-weight: bold;
+    transition: 0.3s ease;
+}
+
+.primary-button {
+    color: white;
+    background: linear-gradient(
+        110deg,
+        #8c20ed,
+        #bd45ff
+    );
+    box-shadow: 0 5px 25px rgba(163, 43, 250, 0.2);
+}
+
+.primary-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(163, 43, 250, 0.35);
+}
+
+.secondary-button {
+    border: 1px solid var(--border);
+    color: white;
+}
+
+.secondary-button:hover {
+    border-color: var(--purple-light);
+    color: var(--purple-light);
+}
+
+
+/* ==========================================
+   5. مميزات الشركة المختصرة
+   ========================================== */
+
+.hero-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 35px;
+}
+
+.feature {
+    color: var(--text-muted);
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.feature-dot {
+    width: 6px;
+    height: 6px;
+    background: var(--purple-light);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--purple);
+}
+
+
+/* ==========================================
+   6. البطاقة البرمجية في الواجهة
+   ========================================== */
+
+.hero-visual {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 380px;
+}
+
+.visual-glow {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: rgba(145, 25, 250, 0.22);
+    filter: blur(90px);
+    border-radius: 50%;
+}
+
+.visual-card {
+    width: 100%;
+    max-width: 460px;
+    background: linear-gradient(
+        145deg,
+        #17172f,
+        #0c0c1c
+    );
+    border: 1px solid rgba(190, 100, 255, 0.25);
+    border-radius: 16px;
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+
+.card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 22px;
+    border-bottom: 1px solid var(--border);
+}
+
+.card-top p {
+    color: var(--text-muted);
+    font-size: 12px;
+    letter-spacing: 2px;
+}
+
+.card-dots {
+    display: flex;
+    gap: 6px;
+}
+
+.card-dots span {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: #a32bfa;
+}
+
+.card-dots span:nth-child(2) {
+    opacity: 0.7;
+}
+
+.card-dots span:nth-child(3) {
+    opacity: 0.4;
+}
+
+.code-content {
+    padding: 35px 25px;
+    font-family: Consolas, monospace;
+    font-size: 13px;
+    line-height: 2.6;
+    overflow-wrap: anywhere;
+}
+
+.code-comment {
+    color: #77758f;
+    margin-bottom: 12px;
+}
+
+.code-purple {
+    color: #c46aff;
+}
+
+.code-blue {
+    color: #6fc7ff;
+}
+
+.code-pink {
+    color: #ff8bc9;
+}
+
+.code-indent {
+    padding-left: 20px;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 17px 10px;
+    border-top: 1px solid var(--border);
+    color: var(--text-muted);
+    font-size: 11px;
+}
+
+.floating-badge {
+    position: absolute;
+    bottom: 15px;
+    right: -15px;
+    z-index: 2;
+    background: #19172d;
+    border: 1px solid rgba(190, 100, 255, 0.3);
+    padding: 13px 16px;
+    border-radius: 9px;
+    font-size: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.floating-badge span {
+    color: var(--purple-light);
+    margin-right: 6px;
+}
+
+
+/* ==========================================
+   7. قسم الخدمات المختصر
+   ========================================== */
+
+.services-preview {
+    padding: 90px 8%;
+    background: #0c0c20;
+    border-top: 1px solid var(--border);
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.section-heading h2 {
+    font-size: clamp(28px, 3vw, 42px);
+    line-height: 1.3;
+}
+
+.section-heading h2 span {
+    color: var(--purple-light);
+}
+
+.service-cards {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.service-card {
+    padding: 30px 25px;
+    background: linear-gradient(
+        145deg,
+        #15152d,
+        #101020
+    );
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    transition: transform 0.3s ease,
+                border-color 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(190, 100, 255, 0.5);
+}
+
+.service-icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(163, 43, 250, 0.13);
+    color: var(--purple-light);
+    border: 1px solid rgba(163, 43, 250, 0.2);
+    border-radius: 10px;
+    font-size: 23px;
+    margin-bottom: 22px;
+}
+
+.service-card h3 {
+    font-size: 18px;
+    margin-bottom: 12px;
+}
+
+.service-card p {
+    color: var(--text-muted);
+    font-size: 13px;
+    line-height: 1.9;
+    margin-bottom: 20px;
+}
+
+.service-card a {
+    color: var(--purple-light);
+    font-size: 13px;
+    font-weight: bold;
+}
+
+
+/* ==========================================
+   8. تذييل الموقع
+   ========================================== */
+
+.footer {
+    padding: 35px 8%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    border-top: 1px solid var(--border);
+}
+
+.footer .logo {
+    font-size: 22px;
+}
+
+.footer p {
+    color: var(--text-muted);
+    font-size: 12px;
+}
+
+.copyright {
+    width: 100%;
+    text-align: center;
+    padding-top: 15px;
+    border-top: 1px solid var(--border);
+}
+
+
+/* ==========================================
+   9. توافق الموقع مع الموبايل
+   ========================================== */
+
+@media (max-width: 1000px) {
+
+    .navbar {
+        padding: 20px 5%;
+    }
+
+    .nav-links {
+        gap: 18px;
+    }
+
+    .hero {
+        padding: 70px 5%;
+        gap: 35px;
+    }
+
+    .hero h1 {
+        font-size: 44px;
+    }
+
+    .services-preview {
+        padding: 75px 5%;
+    }
+
+    .service-cards {
+        gap: 15px;
+    }
+
+    .service-card {
+        padding: 25px 18px;
+    }
+
+}
+
+
+/* ==========================================
+   10. قائمة التنقل في الشاشات الصغيرة
+   ========================================== */
+
+@media (max-width: 760px) {
+
+    .navbar {
+        min-height: 75px;
+        flex-wrap: wrap;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding-top: 10px;
+    }
+
+    .nav-links.show {
+        display: flex;
+    }
+
+    .nav-links a {
+        padding: 13px 5px;
+    }
+
+    .nav-links .nav-button {
+        text-align: center;
+        margin-top: 8px;
+    }
+
+    .hero {
+        grid-template-columns: 1fr;
+        padding: 65px 6%;
+        gap: 50px;
+    }
+
+    .hero h1 {
+        font-size: clamp(38px, 9vw, 55px);
+    }
+
+    .hero-visual {
+        min-height: 330px;
+    }
+
+    .visual-card {
+        max-width: 100%;
+    }
+
+    .floating-badge {
+        right: -5px;
+        bottom: 0;
+    }
+
+    .service-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .services-preview {
+        padding: 65px 6%;
+    }
+
+    .footer {
+        flex-direction: column;
+        text-align: center;
+    }
+
+}
+
+
+/* ==========================================
+   11. شاشات الموبايل الصغيرة جدًا
+   ========================================== */
+
+@media (max-width: 380px) {
+
+    .logo {
+        font-size: 23px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+    }
+
+    .hero-buttons .button {
+        width: 100%;
+    }
+
+    .hero-features {
+        gap: 12px;
+    }
+
+    .code-content {
+        padding: 25px 15px;
+        font-size: 11px;
+    }
+
+}
+/* ==========================================
+   صفحة الخدمات - NASQLY UI
+   ========================================== */
+
+/* مقدمة صفحات الموقع */
+
+.page-hero {
+    padding: 100px 8% 70px;
+    text-align: center;
+
+    background:
+        radial-gradient(
+            ellipse at top,
+            rgba(130, 35, 220, 0.18),
+            transparent 65%
+        );
+}
+
+.page-hero h1 {
+    font-size: clamp(40px, 5vw, 65px);
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.page-hero h1 span {
+    color: var(--purple-light);
+}
+
+.page-hero > p:last-child {
+    max-width: 600px;
+    margin: auto;
+    color: var(--text-muted);
+    line-height: 1.9;
+}
+
+
+/* شبكة الخدمات */
+
+.all-services {
+    padding: 30px 8% 90px;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 24px;
+}
+
+
+/* تفاصيل كل خدمة */
+
+.all-services .service-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    min-height: 390px;
+    padding: 30px 26px;
+}
+
+.all-services .service-card h2 {
+    font-size: 20px;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+.all-services .service-card > p {
+    color: var(--text-muted);
+    font-size: 14px;
+    line-height: 1.9;
+    margin-bottom: 20px;
+}
+
+
+/* قائمة المميزات */
+
+.service-list {
+    list-style: none;
+    margin-bottom: 25px;
+}
+
+.service-list li {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 10px;
+
+    color: #d0cee0;
+    font-size: 12px;
+}
+
+.service-list li::before {
+    content: "✓";
+
+    position: absolute;
+    left: 0;
+
+    color: var(--purple-light);
+    font-weight: bold;
+}
+
+
+/* رابط بدء المشروع */
+
+.service-link {
+    display: inline-block;
+    margin-top: auto;
+
+    color: var(--purple-light);
+    font-size: 13px;
+    font-weight: bold;
+
+    transition: 0.3s ease;
+}
+
+.service-link:hover {
+    color: white;
+    transform: translateX(4px);
+}
+
+
+/* قسم التواصل أسفل الخدمات */
+
+.services-cta {
+    margin: 0 8% 90px;
+    padding: 55px 25px;
+
+    text-align: center;
+
+    border: 1px solid rgba(190, 100, 255, 0.25);
+    border-radius: 15px;
+
+    background:
+        radial-gradient(
+            ellipse at top,
+            rgba(130, 35, 220, 0.20),
+            #111127 75%
+        );
+}
+
+.services-cta h2 {
+    font-size: clamp(25px, 3vw, 36px);
+    margin-bottom: 15px;
+}
+
+.services-cta p {
+    max-width: 550px;
+    margin: 0 auto 25px;
+
+    color: var(--text-muted);
+    line-height: 1.9;
+}
+
+
+/* توافق صفحة الخدمات مع التابلت */
+
+@media (max-width: 1000px) {
+
+    .all-services {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+    .page-hero {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+}
+
+
+/* توافق صفحة الخدمات مع الموبايل */
+
+@media (max-width: 650px) {
+
+    .page-hero {
+        padding-top: 70px;
+        padding-bottom: 45px;
+    }
+
+    .all-services {
+        grid-template-columns: 1fr;
+        padding: 20px 6% 65px;
+    }
+
+    .all-services .service-card {
+        min-height: auto;
+    }
+
+    .services-cta {
+        margin: 0 6% 65px;
+        padding: 40px 20px;
+    }
+
+}
+/* ==========================================
+   صفحة About Us - من نحن
+   ========================================== */
+
+.about-section {
+    padding: 60px 8% 100px;
+
+    display: grid;
+
+    grid-template-columns:
+        1.1fr 0.9fr;
+
+    align-items: center;
+    gap: 65px;
+}
+
+
+/* النص التعريفي */
+
+.about-content h2 {
+    font-size: clamp(30px, 3.5vw, 45px);
+    line-height: 1.3;
+    margin-bottom: 25px;
+}
+
+.about-content h2 span {
+    display: block;
+    color: var(--purple-light);
+}
+
+.about-content > p:not(.section-label) {
+    color: var(--text-muted);
+    font-size: 14px;
+    line-height: 2;
+    margin-bottom: 20px;
+}
+
+.about-content .button {
+    margin-top: 10px;
+}
+
+
+/* المساحة الرسومية */
+
+.about-visual {
+    position: relative;
+
+    min-height: 350px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.about-glow {
+    position: absolute;
+
+    width: 280px;
+    height: 280px;
+
+    background: rgba(163, 43, 250, 0.22);
+
+    filter: blur(85px);
+    border-radius: 50%;
+}
+
+.about-logo-card {
+    position: relative;
+
+    width: 100%;
+    max-width: 390px;
+
+    padding: 45px 20px;
+
+    text-align: center;
+
+    background: linear-gradient(
+        145deg,
+        #19152f,
+        #0d0d20
+    );
+
+    border: 1px solid rgba(190, 100, 255, 0.3);
+
+    border-radius: 18px;
+
+    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.3);
+}
+
+
+/* الرمز المؤقت للشركة */
+
+.about-symbol {
+    width: 100px;
+    height: 100px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: 0 auto 25px;
+
+    border: 2px solid var(--purple-light);
+    border-radius: 25px;
+
+    color: white;
+
+    font-size: 65px;
+    font-weight: 900;
+
+    text-shadow: 0 0 25px var(--purple);
+
+    box-shadow: 0 0 35px rgba(163, 43, 250, 0.2);
+}
+
+.about-logo-card h2 {
+    font-size: 28px;
+    letter-spacing: 2px;
+}
+
+.about-logo-card h2 span {
+    color: var(--purple-light);
+}
+
+.about-logo-card > p {
+    margin-top: 12px;
+
+    color: var(--text-muted);
+
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+
+/* القيم وطريقة العمل */
+
+.values-section {
+    padding: 80px 8%;
+
+    background: #0c0c20;
+
+    border-top: 1px solid var(--border);
+}
+
+.values-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 22px;
+}
+
+.value-card {
+    padding: 30px 25px;
+
+    background: #141429;
+
+    border: 1px solid var(--border);
+    border-radius: 12px;
+
+    transition: 0.3s ease;
+}
+
+.value-card:hover {
+    transform: translateY(-5px);
+
+    border-color: rgba(190, 100, 255, 0.45);
+}
+
+.value-card h3 {
+    font-size: 19px;
+    margin-bottom: 12px;
+}
+
+.value-card p {
+    color: var(--text-muted);
+    font-size: 13px;
+    line-height: 1.9;
+}
+
+
+/* الموبايل والتابلت */
+
+@media (max-width: 850px) {
+
+    .about-section {
+        grid-template-columns: 1fr;
+
+        gap: 35px;
+
+        padding: 45px 6% 70px;
+    }
+
+    .about-visual {
+        min-height: 300px;
+    }
+
+    .values-section {
+        padding: 65px 6%;
+    }
+
+    .values-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+/* ==========================================
+   تنسيق صفحة التواصل - NASQLY UI
+   ========================================== */
+
+.contact-section {
+    min-height: 100vh;
+    padding: 120px 8% 80px;
+    background: #050505;
+    color: #ffffff;
+}
+
+.contact-heading {
+    text-align: center;
+    max-width: 750px;
+    margin: 0 auto 60px;
+}
+
+.contact-heading h1 {
+    font-size: clamp(32px, 5vw, 52px);
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+.contact-heading h1::after {
+    content: "";
+    display: block;
+    width: 100px;
+    height: 4px;
+    background: #008cff;
+    margin: 20px auto 0;
+    border-radius: 10px;
+    box-shadow: 0 0 15px #008cff;
+}
+
+.contact-heading p {
+    color: #aaaaaa;
+    font-size: 17px;
+    line-height: 1.8;
+}
+
+.contact-container {
+    max-width: 1100px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 50px;
+    align-items: start;
+}
+
+.contact-info,
+.contact-form {
+    background: #0d0d0d;
+    padding: 35px;
+    border: 1px solid #222222;
+    border-radius: 18px;
+}
+
+.contact-info {
+    border-top: 3px solid #008cff;
+}
+
+.contact-info h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.contact-info > p {
+    color: #aaaaaa;
+    line-height: 1.8;
+    margin-bottom: 35px;
+}
+
+.contact-item {
+    padding: 18px 0;
+    border-bottom: 1px solid #222222;
+}
+
+.contact-item h3 {
+    color: #008cff;
+    margin-bottom: 10px;
+}
+
+.contact-item p {
+    color: #cccccc;
+    overflow-wrap: anywhere;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.contact-form label {
+    color: #eeeeee;
+    font-size: 14px;
+    margin-top: 8px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 14px;
+    background: #151515;
+    border: 1px solid #333333;
+    border-radius: 8px;
+    color: #ffffff;
+    font-family: inherit;
+    font-size: 15px;
+    outline: none;
+    transition: 0.3s;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: #008cff;
+    box-shadow: 0 0 10px #008cff33;
+}
+
+.contact-form textarea {
+    resize: vertical;
+    min-height: 130px;
+}
+
+.contact-form .btn {
+    margin-top: 15px;
+    padding: 15px;
+    background: #008cff;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.contact-form .btn:hover {
+    background: #006dcc;
+    box-shadow: 0 0 20px #008cff66;
+    transform: translateY(-2px);
+}
+
+/* تنسيق الفوتر */
+footer {
+    text-align: center;
+    padding: 25px 15px;
+    background: #030303;
+    color: #888888;
+    border-top: 1px solid #1c1c1c;
+}
+
+/* جعل صفحة التواصل مناسبة للموبايل */
+@media (max-width: 768px) {
+    .contact-section {
+        padding: 100px 5% 50px;
+    }
+
+    .contact-container {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .contact-info,
+    .contact-form {
+        padding: 25px 20px;
+    }
+
+    .contact-heading {
+        margin-bottom: 35px;
+    }
+}
+/* ==========================================
+   صفحة طلب عرض السعر - NASQLY UI
+   ========================================== */
+
+.quote-section {
+    min-height: 100vh;
+    padding: 120px 8% 80px;
+    background: #050505;
+    color: #ffffff;
+}
+
+.quote-heading {
+    max-width: 750px;
+    margin: 0 auto 50px;
+    text-align: center;
+}
+
+.quote-label {
+    display: inline-block;
+    margin-bottom: 20px;
+    color: #008cff;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 4px;
+}
+
+.quote-heading h1 {
+    margin-bottom: 20px;
+    font-size: clamp(35px, 5vw, 58px);
+    font-weight: 800;
+}
+
+.quote-heading h1 span {
+    color: #008cff;
+    text-shadow: 0 0 25px #008cff55;
+}
+
+.quote-heading p {
+    color: #aaaaaa;
+    font-size: 17px;
+    line-height: 1.8;
+}
+
+/* صندوق النموذج */
+
+.quote-form {
+    max-width: 900px;
+    margin: auto;
+    padding: 40px;
+    background: #0d0d0d;
+    border: 1px solid #222222;
+    border-radius: 18px;
+    box-shadow: 0 0 40px #008cff0a;
+}
+
+/* تقسيم الحقول إلى عمودين */
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+    margin-bottom: 22px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 22px;
+}
+
+.form-row .form-group {
+    margin-bottom: 0;
+}
+
+.form-group label {
+    margin-bottom: 10px;
+    color: #eeeeee;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+/* حقول الكتابة والقوائم */
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 15px;
+    background: #151515;
+    color: #ffffff;
+    border: 1px solid #333333;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 14px;
+    outline: none;
+    transition: 0.3s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #008cff;
+    box-shadow: 0 0 12px #008cff25;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #777777;
+}
+
+.form-group select {
+    cursor: pointer;
+}
+
+.form-group select option {
+    background: #151515;
+    color: #ffffff;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 150px;
+    line-height: 1.7;
+}
+
+/* زر إرسال الطلب */
+
+.quote-submit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    width: 100%;
+    padding: 17px;
+    background: #008cff;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.quote-submit span {
+    font-size: 22px;
+    transition: 0.3s;
+}
+
+.quote-submit:hover {
+    background: #006dcc;
+    box-shadow: 0 0 25px #008cff55;
+    transform: translateY(-2px);
+}
+
+.quote-submit:hover span {
+    transform: translateX(5px);
+}
+
+.quote-note {
+    margin-top: 20px;
+    color: #777777;
+    font-size: 13px;
+    text-align: center;
+    line-height: 1.7;
+}
+
+/* تصميم الموبايل */
+
+@media (max-width: 768px) {
+
+    .quote-section {
+        padding: 100px 5% 50px;
+    }
+
+    .quote-heading {
+        margin-bottom: 35px;
+    }
+
+    .quote-form {
+        padding: 25px 20px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 22px;
+    }
+
+    .quote-heading p {
+        font-size: 15px;
+    }
+
+}
+/* ==========================================
+   NASQLY UI - PREMIUM ANIMATIONS
+   حركات وتأثيرات احترافية باللون الأزرق
+   ========================================== */
+
+/* 1. حركة ظهور الصفحة */
+@keyframes pageAppear {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+body {
+    animation: pageAppear 0.8s ease-out;
+}
+
+/* 2. توهج العناوين */
+h1,
+h2 {
+    transition: text-shadow 0.3s ease, color 0.3s ease;
+}
+
+h1:hover,
+h2:hover {
+    text-shadow:
+        0 0 10px rgba(0, 153, 255, 0.7),
+        0 0 25px rgba(0, 153, 255, 0.4);
+}
+
+/* 3. تأثير احترافي للأزرار */
+button,
+.btn,
+input[type="submit"] {
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        background-color 0.3s ease;
+}
+
+button:hover,
+.btn:hover,
+input[type="submit"]:hover {
+    transform: translateY(-3px);
+    box-shadow:
+        0 0 10px rgba(0, 153, 255, 0.7),
+        0 0 25px rgba(0, 153, 255, 0.3);
+}
+
+button:active,
+.btn:active,
+input[type="submit"]:active {
+    transform: scale(0.97);
+}
+
+/* 4. حركة كروت الخدمات */
+.service-card,
+.services .card {
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease,
+        border-color 0.35s ease;
+}
+
+.service-card:hover,
+.services .card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 30px rgba(0, 153, 255, 0.18);
+    border-color: #0099ff;
+}
+
+/* 5. تأثير توهج للروابط */
+a {
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+a:hover {
+    text-shadow: 0 0 8px rgba(0, 153, 255, 0.5);
+}
+
+/* 6. حركة حقول النماذج */
+input,
+textarea,
+select {
+    transition:
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    border-color: #0099ff;
+    box-shadow: 0 0 12px rgba(0, 153, 255, 0.25);
+}
+
+/* 7. مراعاة الأشخاص الذين يفضلون تقليل الحركة */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
